@@ -2,6 +2,13 @@ name: Build Feature
 
 on:
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
 
 jobs:
   feature:
@@ -20,8 +27,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ inputs.username }}
+          password: ${{ inputs.password }}
 
       - uses: gacts/github-slug@v1
         id: slug

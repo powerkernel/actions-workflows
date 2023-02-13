@@ -9,6 +9,9 @@ on:
       deployment:
         required: true
         type: string
+      kubeconfig:
+        required: true
+        type: string
 
 jobs:
   staging:
@@ -25,7 +28,7 @@ jobs:
         uses: azure/k8s-set-context@v3
         with:
           method: kubeconfig
-          kubeconfig: ${{secrets.KUBE_CONFIG_STAGING}}
+          kubeconfig: ${{ inputs.kubeconfig }}
 
       - name: Deploy to the Kubernetes cluster
         run: |
