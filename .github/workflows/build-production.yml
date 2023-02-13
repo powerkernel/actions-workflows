@@ -6,9 +6,9 @@ on:
       username:
         required: true
         type: string
-      password:
+    ecrets:
+      PASSWORD:
         required: true
-        type: string
 
 jobs:
   production:
@@ -28,7 +28,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
+          password: ${{ secrets.PASSWORD }}
 
       - name: Build and push
         uses: docker/build-push-action@v3

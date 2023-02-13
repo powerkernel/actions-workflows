@@ -6,9 +6,9 @@ on:
       username:
         required: true
         type: string
-      password:
+    secrets:
+      PASSWORD:
         required: true
-        type: string
 
 jobs:
   feature:
@@ -28,7 +28,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
+          password: ${{ secrets.PASSWORD }}
 
       - uses: gacts/github-slug@v1
         id: slug
