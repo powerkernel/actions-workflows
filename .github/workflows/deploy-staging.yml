@@ -9,6 +9,9 @@ on:
       deployment:
         required: true
         type: string
+    secrets:
+      KUBE_CONFIG:
+        required: true
 
 jobs:
   staging:

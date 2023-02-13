@@ -9,6 +9,9 @@ on:
       yaml-path:
         required: true
         type: string
+    secrets:
+      KUBE_CONFIG:
+        required: true
 
 jobs:
   prod:
