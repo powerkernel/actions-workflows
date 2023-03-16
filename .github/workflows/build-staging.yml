@@ -13,6 +13,8 @@ on:
 jobs:
   staging:
     runs-on: ubuntu-latest
+    environment:
+      name: staging
     steps:
       - name: Checkout
         uses: actions/checkout@v3
